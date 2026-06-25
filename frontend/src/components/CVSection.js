@@ -54,7 +54,7 @@ export default function CVSection({ resume }) {
   return (
     <div id="cv" style={{ background: "#EDE8DF" }}>
       {/* Section header */}
-      <div style={{ maxWidth: 1320, margin: "0 auto", padding: "8rem 3rem 0" }}>
+      <div style={{ maxWidth: 1320, margin: "0 auto", padding: "clamp(3rem, 8vw, 8rem) clamp(1.25rem, 3vw, 3rem) 0" }}>
         <div style={{ fontFamily: MONO, fontSize: 9, letterSpacing: ".2em", textTransform: "uppercase", color: "#5ef0ff", display: "flex", alignItems: "center", gap: 8, marginBottom: "1.4rem" }}>
           <span style={{ width: 16, height: "0.5px", background: "#5ef0ff", display: "block" }} />
           Résumé
@@ -78,15 +78,15 @@ export default function CVSection({ resume }) {
       </div>
 
       {/* CV document */}
-      <div style={{ maxWidth: 1320, margin: "0 auto", padding: "0 3rem 8rem" }}>
+      <div style={{ maxWidth: 1320, margin: "0 auto", padding: "0 clamp(1.25rem, 3vw, 3rem) clamp(3rem, 8vw, 8rem)" }}>
         <div ref={printRef} style={{
           background: "#f8f7f4", color: "#111",
-          borderRadius: 6, padding: "3.5rem 4rem",
+          borderRadius: 6, padding: "clamp(1.5rem, 4vw, 3.5rem) clamp(1.25rem, 4vw, 4rem)",
           boxShadow: "0 12px 48px rgba(28,26,23,0.1)",
         }}>
           {/* Header */}
           <div style={{ marginBottom: "2.5rem", paddingBottom: "2rem", borderBottom: "0.5px solid #d8d6d0" }}>
-            <h1 style={{ fontFamily: SANS, fontSize: "2.4rem", fontWeight: 700, letterSpacing: "-.03em", lineHeight: 1, marginBottom: 8 }}>
+            <h1 style={{ fontFamily: SANS, fontSize: "clamp(1.5rem,5vw,2.4rem)", fontWeight: 700, letterSpacing: "-.03em", lineHeight: 1, marginBottom: 8 }}>
               {name}
             </h1>
             <div style={{ fontFamily: MONO, fontSize: 11, letterSpacing: ".15em", color: "#666", textTransform: "uppercase", marginBottom: "1rem" }}>
@@ -156,7 +156,7 @@ export default function CVSection({ resume }) {
             <div style={{ fontFamily: MONO, fontSize: 9, letterSpacing: ".2em", textTransform: "uppercase", color: "#aaa", paddingBottom: 6, borderBottom: "0.5px solid #d8d6d0", marginBottom: "1.5rem" }}>
               Technical Skills
             </div>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "1.5rem" }}>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))", gap: "1.5rem" }}>
               {Object.entries(skills).map(([cat, list]) => (
                 <div key={cat}>
                   <div style={{ fontFamily: MONO, fontSize: 9, letterSpacing: ".14em", textTransform: "uppercase", color: "#999", marginBottom: 8 }}>{cat}</div>
